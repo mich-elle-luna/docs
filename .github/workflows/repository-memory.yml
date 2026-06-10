@@ -38,6 +38,7 @@ jobs:
         env:
           REDIS_URL: ${{ secrets.MEMORY_REDIS_URL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          UPSTREAM_REPO: redis/docs
         run: node scripts/memory/retrieve_memory.js
 
       - name: Post result
