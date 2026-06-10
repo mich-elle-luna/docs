@@ -45,7 +45,7 @@ You can use hashes to represent basic objects and to store groupings of counters
 {{< /clients-example >}}
 
 While hashes are used to represent *objects*, actually the number of fields you can
-put inside a hash has no practical limits (other than available memory), so you can use
+put inside a hash has no practical limits (other than available memory). You can use
 hashes in many different ways inside your application.
 
 The command [`HSET`]({{< relref "/commands/hset" >}}) sets multiple fields of the hash, while [`HGET`]({{< relref "/commands/hget" >}}) retrieves
