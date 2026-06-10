@@ -10,7 +10,7 @@ linkTitle: Video tutorials
 weight: 60
 ---
 
-Explore our collection of video tutorials and demonstrations showcasing how Redis powers AI applications. From vector search fundamentals to advanced RAG implementations, these videos provide practical insights and hands-on examples.
+Explore our collection of video tutorials and demonstrations showcasing how Redis powers AI applications. From vector search fundamentals to advanced RAG implementations, these videos provide practical insights and examples.
 
 | | | |
 |---|---|---|
