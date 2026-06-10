@@ -12,7 +12,7 @@ weight: 10
 
 ## How AI agents work
 
-AI agents are autonomous systems that go far beyond simple chatbots. They combine large language models (LLMs) with external tools, memory, and planning capabilities to accomplish complex tasks.
+AI agents are autonomous systems that go beyond simple chatbots. They combine large language models (LLMs) with external tools, memory, and planning capabilities to accomplish complex tasks.
 
 **Key differences from chatbots:**
 - Maintain state across multiple conversations
