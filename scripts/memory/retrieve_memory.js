@@ -82,10 +82,13 @@ async function main() {
       }
     );
 
+    // Match memories from the current repo and optionally the upstream repo
+    // (set UPSTREAM_REPO=redis/docs in the workflow to include seeded upstream content).
+    const allowedRepos = new Set([context.repo, process.env.UPSTREAM_REPO].filter(Boolean));
     const related = searchResult.documents
       .filter(doc => {
         const score = parseFloat(doc.value.score ?? '2');
-        return score < SIMILARITY_THRESHOLD && doc.value.repo === context.repo;
+        return score < SIMILARITY_THRESHOLD && allowedRepos.has(doc.value.repo);
       })
       .slice(0, MAX_RESULTS);
 
