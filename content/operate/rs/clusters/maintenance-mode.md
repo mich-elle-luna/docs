@@ -48,6 +48,10 @@ You can start server maintenance if:
 
 - Enough nodes are still online to maintain quorum
 
+### Decision graph for maintenance mode
+
+Refer to this decision tree to help you decide if this is the right mode, when and hot to use it for your requirements.
+
 ### Prevent replica shard migration
 
 If you do not have enough resources available to move all of the shards to other nodes, you can turn maintenance mode on without migrating the replica shards.
