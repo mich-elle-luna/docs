@@ -259,7 +259,7 @@ after the SCHEMA keyword, declares which fields to index:
  - `{identifier}` for hashes, is a field name within the hash.
       For JSON, the identifier is a JSON Path expression.
 
- - `AS {attribute}` defines the attribute associated to the identifier. For example, you can use this feature to alias a complex JSONPath expression with more memorable (and easier to type) name.
+ - `AS {attribute}` defines the attribute associated to the identifier. For example, you can use this feature to alias a complex JSONPath expression with a more memorable (and easier to type) name.
 
  Field types are:
 
