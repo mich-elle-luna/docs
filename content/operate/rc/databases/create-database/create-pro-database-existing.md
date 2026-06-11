@@ -77,6 +77,10 @@ The **Performance** section lets you manage the maximum size, throughput, and ha
 | **Hashing policy**  | Defines the [hashing policy]({{< relref "/operate/rc/databases/configuration/clustering#manage-the-hashing-policy" >}}).  |
 | **OSS Cluster API** | Activates the [OSS Cluster API]({{< relref "/operate/rc/databases/configuration/clustering#oss-cluster-api" >}}) for a database.<br/> After you select OSS Cluster API, you can select **Use external endpoint** if you want to use the external endpoint for the database. Selecting **Use external endpoint** will block the private endpoint for this database. |
 
+### Best practice for performance
+
+add performance best practices
+
 ## Durability section
 
 The **Durability** section helps you keep your database (and your data) available when problems occur.

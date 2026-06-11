@@ -10,7 +10,7 @@ linkTitle: Create replica databases
 weight: 42
 ---
 
-You can configure a replica of a database by creating an item in
+Configure a replica of a database by creating an item in
 the [`replicaSources`]({{< relref "/operate/kubernetes/reference/api/redis_enterprise_database_api#specreplicasources" >}}) section of the RedisEnterpriseDatabase (REDB) custom resource.
 
 {{< note >}}

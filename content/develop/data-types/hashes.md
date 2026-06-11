@@ -44,8 +44,8 @@ You can use hashes to represent basic objects and to store groupings of counters
 
 {{< /clients-example >}}
 
-While hashes are handy to represent *objects*, actually the number of fields you can
-put inside a hash has no practical limits (other than available memory), so you can use
+While hashes are used to represent *objects*, actually the number of fields you can
+put inside a hash has no practical limits (other than available memory). You can use
 hashes in many different ways inside your application.
 
 The command [`HSET`]({{< relref "/commands/hset" >}}) sets multiple fields of the hash, while [`HGET`]({{< relref "/commands/hget" >}}) retrieves
@@ -70,7 +70,7 @@ as well, like [`HINCRBY`]({{< relref "/commands/hincrby" >}}):
 
 You can find the [full list of hash commands in the documentation]({{< relref "/commands#hash" >}}).
 
-It is worth noting that small hashes (i.e., a few elements with small values) are
+It is worth noting that small hashes (for example, a few elements with small values) are
 encoded in special way in memory that make them very memory efficient.
 
 ## Examples
@@ -201,5 +201,5 @@ In practice, your hashes are limited only by the overall memory on the VMs hosti
 
 ## Learn more
 
-* [Redis Hashes Explained](https://www.youtube.com/watch?v=-KdITaRkQ-U) is a short, comprehensive video explainer covering Redis hashes.
+* [Redis Hashes Explained](https://www.youtube.com/watch?v=-KdITaRkQ-U) is a short, comprehensive video that explains Redis hashes.
 * [Redis University's RU101](https://university.redis.com/courses/ru101/) covers Redis hashes in detail.

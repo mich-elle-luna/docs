@@ -20,6 +20,9 @@ Use the interactive builder below to generate your custom AI agent code:
 
 {{< agent-builder >}}
 
+## New agent type
+new agent goes here
+
 ## What are AI agents?
 
 AI agents are intelligent systems that can plan, remember, and take actions to help users accomplish goals. Unlike simple chatbots, agents can remember conversations, plan multi-step tasks, use external tools, and learn from interactions.
