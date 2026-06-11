@@ -253,6 +253,10 @@ this behavior to suit your use case. See
 [Retries]({{< relref "/develop/clients/redis-py/produsage#retries" >}})
 for more information about custom retry strategies, with example code.
 
+## New example for retrying connections
+
+here is a concrete example of retry logic
+
 ## Connect using Smart client handoffs (SCH)
 
 *Smart client handoffs (SCH)* is a feature of Redis Cloud and
