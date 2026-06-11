@@ -87,15 +87,20 @@ async function main() {
     const itemId = context.prNumber
       ? `${safeRepo}_pr_${context.prNumber}`
       : `${safeRepo}_push_${context.sha?.slice(0, 8)}`;
-    const currentKey = `${KEY_PREFIX}${itemId}`;
+    // Exclude the current item AND the push memory for the same SHA — a commit
+    // pushed to a branch before a PR opens gets stored as _push_{sha} and would
+    // otherwise surface as a related item when the PR runs.
+    const excludeKeys = new Set([
+      `${KEY_PREFIX}${itemId}`,
+      `${KEY_PREFIX}${safeRepo}_push_${context.sha?.slice(0, 8)}`,
+    ]);
 
-    // Match memories from the current repo and optionally the upstream repo,
-    // excluding the current item so a PR/commit never surfaces itself.
+    // Match memories from the current repo and optionally the upstream repo.
     const allowedRepos = new Set([context.repo, process.env.UPSTREAM_REPO].filter(Boolean));
     const related = searchResult.documents
       .filter(doc => {
         const score = parseFloat(doc.value.score ?? '2');
-        return score < SIMILARITY_THRESHOLD && allowedRepos.has(doc.value.repo) && doc.id !== currentKey;
+        return score < SIMILARITY_THRESHOLD && allowedRepos.has(doc.value.repo) && !excludeKeys.has(doc.id);
       })
       .slice(0, MAX_RESULTS);
 
