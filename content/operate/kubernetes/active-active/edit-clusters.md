@@ -160,3 +160,7 @@ To communicate with other clusters, all participating clusters need access to th
 ```sh
 kubectl get reaadb <reaadb-name> -o=jsonpath='{.status.participatingClusters}'
 ```
+
+## Additional resources
+
+Add resources section for next steps or troubleshooting 
