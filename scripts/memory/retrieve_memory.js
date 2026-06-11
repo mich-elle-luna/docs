@@ -80,21 +80,24 @@ async function main() {
       }
     );
 
-    // Match memories from the current repo and optionally the upstream repo
-    // (set UPSTREAM_REPO=redis/docs in the workflow to include seeded upstream content).
-    const allowedRepos = new Set([context.repo, process.env.UPSTREAM_REPO].filter(Boolean));
-    const related = searchResult.documents
-      .filter(doc => {
-        const score = parseFloat(doc.value.score ?? '2');
-        return score < SIMILARITY_THRESHOLD && allowedRepos.has(doc.value.repo);
-      })
-      .slice(0, MAX_RESULTS);
-
-    // Store the current context as a memory artifact
+    // Build current item ID so we can exclude it from results
     const safeRepo = context.repo.replace(/\//g, '_');
     const itemId = context.prNumber
       ? `${safeRepo}_pr_${context.prNumber}`
       : `${safeRepo}_push_${context.sha?.slice(0, 8)}`;
+    const currentKey = `${KEY_PREFIX}${itemId}`;
+
+    // Match memories from the current repo and optionally the upstream repo,
+    // excluding the current item so a PR/commit never surfaces itself.
+    const allowedRepos = new Set([context.repo, process.env.UPSTREAM_REPO].filter(Boolean));
+    const related = searchResult.documents
+      .filter(doc => {
+        const score = parseFloat(doc.value.score ?? '2');
+        return score < SIMILARITY_THRESHOLD && allowedRepos.has(doc.value.repo) && doc.id !== currentKey;
+      })
+      .slice(0, MAX_RESULTS);
+
+    // Store the current context as a memory artifact
 
     const sourceUrl = context.prNumber
       ? `https://github.com/${context.repo}/pull/${context.prNumber}`
