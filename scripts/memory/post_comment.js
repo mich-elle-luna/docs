@@ -96,7 +96,13 @@ async function main() {
   const markdown = buildMarkdown(related, context, sourceUrl);
 
   if (context.prNumber) {
-    await postOrUpdatePrComment(repo, context.prNumber, markdown, token);
+    if (context.action === 'synchronize') {
+      // New commits pushed — always post a fresh comment so each update is visible
+      const created = await githubRequest('POST', `/repos/${repo}/issues/${context.prNumber}/comments`, { body: markdown }, token);
+      console.log(`created_comment_id=${created.id} pr=${context.prNumber} action=synchronize`);
+    } else {
+      await postOrUpdatePrComment(repo, context.prNumber, markdown, token);
+    }
   } else {
     // Post commit status so results are visible on the commit without opening Actions
     await postCommitStatus(repo, context.sha, related, sourceUrl, token);
