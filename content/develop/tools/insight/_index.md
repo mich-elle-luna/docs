@@ -159,6 +159,10 @@ If you're using the indexing, querying, or full-text search features of Redis Op
 
 {{< image filename="images/ri/ri-search.png" alt="Search features" >}}
 
+#### Redis search and indexing tips
+
+Add some tips for search and indexing
+
 ### Bulk actions
 
 Easily and quickly delete multiple keys of the same type and/or with the same key name pattern in bulk. To do so, in the List or Tree view, set filters per key type or key names and open the Bulk Actions section. The section displays a summary of all the keys with the expected number of keys that will be deleted based on the set filters.
