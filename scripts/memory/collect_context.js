@@ -55,6 +55,7 @@ if (eventName === 'push') {
   const pr = event.pull_request;
   context = {
     eventName,
+    action: event.action,
     type: 'pull_request',
     sha: pr.head.sha,
     branch: pr.head.ref,
